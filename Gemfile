@@ -22,6 +22,10 @@ group :development, :test do
   gem 'pry-rails'
 end
 
+group :test do
+  gem 'mocha'
+end
+
 group :development do
   gem 'listen'
 end

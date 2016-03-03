@@ -3,13 +3,11 @@ class Webhooks::From::Github
 
   def initialize(payload)
     @payload = JSON.parse(payload)
+  rescue
+    @payload = nil
   end
 
   def parse
-    comment_body
-  end
-
-  def comment_body
     # 雑に探す
     @payload['pull_request']['body']
   rescue

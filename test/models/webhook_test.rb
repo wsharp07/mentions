@@ -21,4 +21,13 @@ class WebhookTest < ActiveSupport::TestCase
 
     assert_equal Webhooks::To::Slack, webhook.to_class
   end
+
+  def test_run
+    slack = mock('Webhooks::To::Slack')
+    Webhooks::To::Slack.expects(:new).returns(slack)
+    slack.expects(:run)
+
+    webhook = webhooks(:github_to_slack)
+    webhook.run(payload: {comment: {body: '@ppworks 見てくだい'}}.to_json)
+  end
 end
