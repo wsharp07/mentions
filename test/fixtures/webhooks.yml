@@ -1,0 +1,14 @@
+github_to_slack:
+  from: github
+  to: slack
+  token: token1
+
+esa_to_slack:
+  from: esa
+  to: slack
+  token: token2
+
+github_to_idobata:
+  from: github
+  to: idobata
+  token: token3
