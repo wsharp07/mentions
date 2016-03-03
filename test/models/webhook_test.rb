@@ -13,7 +13,6 @@ class WebhookTest < ActiveSupport::TestCase
 
   def test_from_class
     webhook = webhooks(:github_to_slack)
-
     assert_equal Webhooks::From::Github, webhook.from_class
   end
 

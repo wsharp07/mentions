@@ -6,8 +6,10 @@ class Webhook < ApplicationRecord
   validates :to, inclusion: { in: TO }
   validates :token, uniqueness: true
 
-  def run
-    from_class.new.run(to_class.new)
+  def run(payload:)
+    comment = from_class.new(payload).parse
+    mentions = [] # TODO: mappingしてから次へ
+    to_class.new(mentions).run
   end
 
   def from_class
