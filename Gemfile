@@ -18,11 +18,11 @@ gem 'turbolinks'
 gem 'jbuilder'
 
 group :development, :test do
-  gem 'byebug'
+  gem 'pry-byebug'
+  gem 'pry-rails'
 end
 
 group :development do
-  gem 'web-console', github: 'rails/web-console'
   gem 'listen'
 end
 
