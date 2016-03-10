@@ -11,7 +11,7 @@ If you've mentioned on github, you'll get mention on slack.
 or
 
 ```
-export MENTIONS_MAPPING_FILE_PATH=https://***REMOVED***/mention_mappings.yml # mapping file path
+export MENTIONS_MAPPING_FILE_PATH=https://gist.githubusercontent.com/ppworks/49f6ce44efb09d5fc8e9/raw/c1465aab5d6604b98ba6ca4c31263a5b36f62378/mention_mappings.yml # mapping file path
 export SLACK_WEBHOOK_URL=https://hook.slack.com/services/yyyyyyyyyyyyyy # Please use Incoming WebHooks
 ```
 
@@ -35,7 +35,7 @@ https://your-application-name.herokuapp.com/webhooks/your-webhook-token
 
 ## Mentions mapping file example
 
-https://***REMOVED***/mention_mappings.yml
+https://gist.githubusercontent.com/ppworks/49f6ce44efb09d5fc8e9/raw/c1465aab5d6604b98ba6ca4c31263a5b36f62378/mention_mappings.yml
 
 ```
 -
