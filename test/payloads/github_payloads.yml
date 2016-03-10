@@ -1340,3 +1340,18 @@ pull_request_review_comment:
     "site_admin": false
   }
 }'
+assigned_issue:
+  body: '{
+  "action": "assigned",
+  "issue": {
+    "assignee": "ppworks"
+  }
+}'
+
+assigned_pull_request:
+  body: '{
+  "action": "assigned",
+  "pull_request": {
+    "assignee": "ppworks"
+  }
+}'

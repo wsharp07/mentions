@@ -9,7 +9,7 @@ class Webhooks::From::Github
   end
 
   def comment
-    search_content('body')
+    assigned? ? 'assigned' : search_content('body')
   end
 
   def url
@@ -17,7 +17,15 @@ class Webhooks::From::Github
   end
 
   def mentions
-    comment.match(/@([\S]+)/).to_a[1..-1] || []
+    if assigned?
+      [search_content('assignee')].compact
+    else
+      comment.match(/@([\S]+)/).to_a[1..-1] || []
+    end
+  end
+
+  def assigned?
+    @payload.dig('action') == 'assigned'
   end
 
   private

@@ -14,4 +14,17 @@ class Webhooks::From::GithubTest < ActiveSupport::TestCase
       assert_equal "#{event} body", github.comment
     end
   end
+
+  def test_assigned
+    %w(assigned_issue
+       assigned_pull_request).each do |event|
+
+      payload = JSON.parse(YAML.load_file("#{Rails.root}/test/payloads/github_payloads.yml")[event]['body'])
+      github = Webhooks::From::Github.new(payload: payload)
+
+      assert github.assigned?
+      assert_equal 'assigned', github.comment
+      assert_equal ['ppworks'], github.mentions
+    end
+  end
 end
