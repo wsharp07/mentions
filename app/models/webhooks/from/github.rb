@@ -28,6 +28,10 @@ class Webhooks::From::Github
     @payload.dig('action') == 'assigned'
   end
 
+  def additional_message
+    assigned? ? "you've been assigned" : "you've been mentioned"
+  end
+
   private
 
   def search_content(*keys)

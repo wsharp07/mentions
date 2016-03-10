@@ -1,9 +1,10 @@
 class Webhooks::To::Slack
   attr_reader :from_instance
 
-  def initialize(mentions:, url:)
+  def initialize(mentions:, url:, additional_message:)
     @mentions = mentions
     @url = url
+    @additional_message = additional_message
   end
 
   def webhook_url(mention)
@@ -12,7 +13,7 @@ class Webhooks::To::Slack
 
   def run
     @mentions.each do |mention|
-      post(webhook_url(mention), "@#{mention} #{@url}")
+      post(webhook_url(mention), "@#{mention} #{@url} #{@additional_message}")
     end
   end
 
