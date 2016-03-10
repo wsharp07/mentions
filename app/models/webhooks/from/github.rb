@@ -3,7 +3,7 @@ class Webhooks::From::Github
   attr_reader :payload
 
   def initialize(payload:)
-    @payload = payload
+    @payload = JSON.parse(payload)
   rescue
     @payload = {}
   end

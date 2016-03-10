@@ -8,7 +8,7 @@ class Webhooks::From::GithubTest < ActiveSupport::TestCase
        issues
        pull_request_review_comment).each do |event|
 
-      payload = JSON.parse(YAML.load_file("#{Rails.root}/test/payloads/github_payloads.yml")[event]['body'])
+      payload = YAML.load_file("#{Rails.root}/test/payloads/github_payloads.yml")[event]['body']
       github = Webhooks::From::Github.new(payload: payload)
 
       assert_equal "#{event} body", github.comment
@@ -19,7 +19,7 @@ class Webhooks::From::GithubTest < ActiveSupport::TestCase
     %w(assigned_issue
        assigned_pull_request).each do |event|
 
-      payload = JSON.parse(YAML.load_file("#{Rails.root}/test/payloads/github_payloads.yml")[event]['body'])
+      payload = YAML.load_file("#{Rails.root}/test/payloads/github_payloads.yml")[event]['body']
       github = Webhooks::From::Github.new(payload: payload)
 
       assert github.assigned?

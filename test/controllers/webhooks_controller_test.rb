@@ -15,7 +15,7 @@ class WebhooksControllerTest < ActionDispatch::IntegrationTest
        pull_request_review_comment).each do |event|
 
       webhook = webhooks(:github_to_slack)
-      payload = JSON.parse(YAML.load_file("#{Rails.root}/test/payloads/github_payloads.yml")[event]['body'])
+      payload = YAML.load_file("#{Rails.root}/test/payloads/github_payloads.yml")[event]['body']
 
       post "/webhooks/#{webhook.token}", params: payload
       assert_response :success
