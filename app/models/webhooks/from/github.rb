@@ -1,4 +1,5 @@
 class Webhooks::From::Github
+  PATTERNS = %w(comment pull_request)
   attr_reader :payload
 
   def initialize(payload:)
@@ -8,18 +9,20 @@ class Webhooks::From::Github
   end
 
   def comment
-    # 雑に探す
-    @payload.dig('comment', 'body') \
-    || @payload.dig('pull_request', 'body')
+    search_content('body')
   end
 
   def url
-    # 雑に探す
-    @payload.dig('comment', 'html_url') \
-    || @payload.dig('pull_request', 'html_url')
+    search_content('html_url')
   end
 
   def mentions
     comment.match(/@([\S]+)/).to_a[1..-1] || []
+  end
+
+  private
+
+  def search_content(key)
+    PATTERNS.map { |pattern| @payload.dig(pattern, key) }.compact.first
   end
 end
