@@ -1,5 +1,5 @@
 class Webhooks::From::Github
-  PATTERNS = %w(comment pull_request)
+  PATTERNS = %w(comment pull_request issue)
   attr_reader :payload
 
   def initialize(payload:)
