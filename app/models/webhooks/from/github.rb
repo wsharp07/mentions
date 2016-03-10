@@ -18,7 +18,7 @@ class Webhooks::From::Github
 
   def mentions
     if assigned?
-      [search_content('assignee')].compact
+      [search_content('assignee', 'login')].compact
     else
       comment.match(/@([\S]+)/).to_a[1..-1] || []
     end
@@ -30,7 +30,7 @@ class Webhooks::From::Github
 
   private
 
-  def search_content(key)
-    PATTERNS.map { |pattern| @payload.dig(pattern, key) }.compact.first
+  def search_content(*keys)
+    PATTERNS.map { |pattern| @payload.dig(*[pattern, *keys]) }.compact.first
   end
 end

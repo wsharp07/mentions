@@ -1344,7 +1344,7 @@ assigned_issue:
   body: '{
   "action": "assigned",
   "issue": {
-    "assignee": "ppworks"
+    "assignee": {"login": "ppworks"}
   }
 }'
 
@@ -1352,6 +1352,6 @@ assigned_pull_request:
   body: '{
   "action": "assigned",
   "pull_request": {
-    "assignee": "ppworks"
+    "assignee": {"login": "ppworks"}
   }
 }'

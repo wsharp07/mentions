@@ -26,20 +26,20 @@ class WebhookTest < ActiveSupport::TestCase
     Webhooks::To::Slack.any_instance.expects(:post)
 
     webhook = webhooks(:github_to_slack)
-    webhook.run(payload: {'comment' => { 'html_url' => 'http://example.com/issue/1#issuecomment-1', 'body' => '@ppworks 見てください'}})
+    webhook.run(payload: {'comment' => { 'html_url' => 'http://example.com/issue/1#issuecomment-1', 'body' => '@ppworks 見てください'}}.to_json)
   end
 
   def test_run_lack_of_slack
     Webhooks::To::Slack.any_instance.expects(:post).never
 
     webhook = webhooks(:github_to_slack)
-    webhook.run(payload: {'comment' => { 'html_url' => 'http://example.com/issue/1#issuecomment-1', 'body' => '@taea 見てください'}})
+    webhook.run(payload: {'comment' => { 'html_url' => 'http://example.com/issue/1#issuecomment-1', 'body' => '@taea 見てください'}}.to_json)
   end
 
   def test_run_lack_of_github
     Webhooks::To::Slack.any_instance.expects(:post).never
 
     webhook = webhooks(:github_to_slack)
-    webhook.run(payload: {'comment' => { 'html_url' => 'http://example.com/issue/1#issuecomment-1', 'body' => '@fukayatsu 見てください'}})
+    webhook.run(payload: {'comment' => { 'html_url' => 'http://example.com/issue/1#issuecomment-1', 'body' => '@fukayatsu 見てください'}}.to_json)
   end
 end
