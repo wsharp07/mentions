@@ -8,7 +8,7 @@ class IdMappingTest < ActiveSupport::TestCase
   end
 
   def test_convert_with_gist
-    file_path = "https://gist.githubusercontent.com/ppworks/49f6ce44efb09d5fc8e9/raw/c1465aab5d6604b98ba6ca4c31263a5b36f62378/mention_mappings.ym://gist.githubusercontent.com/ppworks/49f6ce44efb09d5fc8e9/raw/c1465aab5d6604b98ba6ca4c31263a5b36f62378/mention_mappings.yml"
+    file_path = "https://gist.githubusercontent.com/ppworks/49f6ce44efb09d5fc8e9/raw/3c2c8ac5651cba78d3ae7e9ead027bc3228e6dc7/mention_mappings.yml"
     mapping = IdMapping.new(file_path)
     assert_equal 'ppworks', mapping.find(user_name: 'koshikawa_naoto', from: 'esa', to: 'slack')
   end
