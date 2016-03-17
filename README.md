@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/ppworks/mentions.svg?branch=master)](https://travis-ci.org/ppworks/mentions)
 
-If you've mentioned on github, you'll get mention on slack.
+If you've mentioned on github or esa, you'll get the mention on slack.
 
 ## Setup
 
