@@ -11,7 +11,7 @@ class Webhooks::From::Esa < Webhooks::From::Base
 
   def mentions
     return [] unless @payload.dig('kind') =~ /_mention\z/
-    super
+    [@payload.dig('mentioned_user', 'screen_name')].compact
   end
 
   def additional_message
