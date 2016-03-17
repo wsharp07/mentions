@@ -17,14 +17,14 @@ export SLACK_WEBHOOK_URL=https://hook.slack.com/services/yyyyyyyyyyyyyy # Please
 
 ### Create webhook
 
-Now, we only support from github to slack.
+Now, we support from github to slack & esa to slack.
+
+### Set GitHub webhook
 
 ```
 heroku run console -a your-application-name
 Webhook.create(from: 'github', to: 'slack').token # Your webhook token
 ```
-
-### Set GitHub webhook
 
 ```
 https://your-application-name.herokuapp.com/webhooks/your-webhook-token
@@ -32,6 +32,18 @@ https://your-application-name.herokuapp.com/webhooks/your-webhook-token
 
 ![image](https://cloud.githubusercontent.com/assets/536118/13662694/dc6ad3e6-e6df-11e5-8fed-905f9fc35ab4.png)
 
+### Set esa webhook
+
+```
+heroku run console -a your-application-name
+Webhook.create(from: 'esa', to: 'slack').token # Your webhook token
+```
+
+```
+https://your-application-name.herokuapp.com/webhooks/your-webhook-token
+```
+
+![image](https://cloud.githubusercontent.com/assets/536118/13838757/d9110bfa-ec59-11e5-8578-acac57619576.png)
 
 ## Mentions mapping file example
 
@@ -41,4 +53,5 @@ https://gist.githubusercontent.com/ppworks/49f6ce44efb09d5fc8e9/raw/c1465aab5d66
 -
   github: ppworks
   slack: koshikawa.naoto
+  esa: koshikawa_naoto
 ```

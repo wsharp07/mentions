@@ -1,12 +1,5 @@
-class Webhooks::From::Github
+class Webhooks::From::Github < Webhooks::From::Base
   PATTERNS = %w(comment pull_request issue)
-  attr_reader :payload
-
-  def initialize(payload:)
-    @payload = JSON.parse(payload)
-  rescue
-    @payload = {}
-  end
 
   def comment
     assigned? ? 'assigned' : search_content('body')
@@ -20,7 +13,7 @@ class Webhooks::From::Github
     if assigned?
       [search_content('assignee', 'login')].compact
     else
-      comment.match(/@([\S]+)/).to_a[1..-1] || []
+      super
     end
   end
 
@@ -29,12 +22,6 @@ class Webhooks::From::Github
   end
 
   def additional_message
-    assigned? ? "you've been assigned" : "you've been mentioned"
-  end
-
-  private
-
-  def search_content(*keys)
-    PATTERNS.map { |pattern| @payload.dig(*[pattern, *keys]) }.compact.first
+    assigned? ? "you've been assigned" : super
   end
 end

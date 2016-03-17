@@ -1,0 +1,127 @@
+post_mention:
+  body: '{
+  "kind":"post_mention",
+  "user":{
+    "name":"naoto koshikawa",
+    "screen_name":"naoto5959",
+    "icon":{
+      "url":"/images/fallback/default-user-icon.png",
+      "thumb_s":{
+        "url":"/images/fallback/default-user-icon.png"
+      },
+      "thumb_ms":{
+        "url":"/images/fallback/default-user-icon.png"
+      },
+      "thumb_m":{
+        "url":"/images/fallback/default-user-icon.png"
+      },
+      "thumb_l":{
+        "url":"/images/fallback/default-user-icon.png"
+      },
+      "thumb_esa":{
+        "url":"/images/fallback/default-user-icon.png"
+      }
+    }
+  },
+  "team":{
+    "name":"test"
+  },
+  "post":{
+    "body_md":"post_mention body\r\n## やったこと\r\n\r\n* [x] 子守り\r\n* [x] 運転\r\n\r\n## 一言\r\n\r\n子が声を出して笑うようになったりして、少し感動している。\r\n\r\n@koshikawa_naoto ",
+    "body_html":"<p>post_mention body</p><h2 id=\"0-1-0\" name=\"0-1-0\">\n<a class=\"anchor\" href=\"#0-1-0\"><i class=\"fa fa-link\"></i><span class=\"hidden\" data-text=\"やったこと\"> &gt; やったこと</span></a>やったこと</h2>\n\n<ul class=\"task-list\">\n<li class=\"task-list-item\">\n<input type=\"checkbox\" class=\"task-list-item-checkbox\" data-item-position=\"0\" checked>子守り</li>\n<li class=\"task-list-item\">\n<input type=\"checkbox\" class=\"task-list-item-checkbox\" data-item-position=\"1\" checked>運転</li>\n</ul>\n\n<h2 id=\"0-2-0\" name=\"0-2-0\">\n<a class=\"anchor\" href=\"#0-2-0\"><i class=\"fa fa-link\"></i><span class=\"hidden\" data-text=\"一言\"> &gt; 一言</span></a>一言</h2>\n\n<p>子が声を出して笑うようになったりして、少し感動している。</p>\n\n<p><a href=\"/users/koshikawa_naoto\" class=\"user-mention\" title=\"koshikawa_naoto\" target=\"_blank\">@koshikawa_naoto</a> </p>\n",
+    "message":"Ship It!",
+    "wip":false,
+    "number":8,
+    "name":"日報/2016/03/17/越川直人",
+    "url":"http://ware2.lvh.me:3000/posts/8",
+    "diff_url":"http://ware2.lvh.me:3000/posts/8/revisions/2/diff"
+  },
+  "mentioned_user":{
+    "name":"Naoto Koshikawa",
+    "screen_name":"koshikawa_naoto",
+    "icon":{
+      "url":"/images/fallback/default-user-icon.png",
+      "thumb_s":{
+        "url":"/images/fallback/default-user-icon.png"
+      },
+      "thumb_ms":{
+        "url":"/images/fallback/default-user-icon.png"
+      },
+      "thumb_m":{
+        "url":"/images/fallback/default-user-icon.png"
+      },
+      "thumb_l":{
+        "url":"/images/fallback/default-user-icon.png"
+      },
+      "thumb_esa":{
+        "url":"/images/fallback/default-user-icon.png"
+      }
+    }
+  }
+}'
+
+comment_mention:
+  body: '{
+  "kind":"post_mention",
+  "user":{
+    "name":"naoto koshikawa",
+    "screen_name":"naoto5959",
+    "icon":{
+      "url":"/images/fallback/default-user-icon.png",
+      "thumb_s":{
+        "url":"/images/fallback/default-user-icon.png"
+      },
+      "thumb_ms":{
+        "url":"/images/fallback/default-user-icon.png"
+      },
+      "thumb_m":{
+        "url":"/images/fallback/default-user-icon.png"
+      },
+      "thumb_l":{
+        "url":"/images/fallback/default-user-icon.png"
+      },
+      "thumb_esa":{
+        "url":"/images/fallback/default-user-icon.png"
+      }
+    }
+  },
+  "team":{
+    "name":"test"
+  },
+  "post":{
+    "body_md":"post_mention body\r\n## やったこと\r\n\r\n* [x] 子守り\r\n* [x] 運転\r\n\r\n## 一言\r\n\r\n子が声を出して笑うようになったりして、少し感動している。\r\n\r\n@koshikawa_naoto ",
+    "body_html":"<p>post_mention body</p><h2 id=\"0-1-0\" name=\"0-1-0\">\n<a class=\"anchor\" href=\"#0-1-0\"><i class=\"fa fa-link\"></i><span class=\"hidden\" data-text=\"やったこと\"> &gt; やったこと</span></a>やったこと</h2>\n\n<ul class=\"task-list\">\n<li class=\"task-list-item\">\n<input type=\"checkbox\" class=\"task-list-item-checkbox\" data-item-position=\"0\" checked>子守り</li>\n<li class=\"task-list-item\">\n<input type=\"checkbox\" class=\"task-list-item-checkbox\" data-item-position=\"1\" checked>運転</li>\n</ul>\n\n<h2 id=\"0-2-0\" name=\"0-2-0\">\n<a class=\"anchor\" href=\"#0-2-0\"><i class=\"fa fa-link\"></i><span class=\"hidden\" data-text=\"一言\"> &gt; 一言</span></a>一言</h2>\n\n<p>子が声を出して笑うようになったりして、少し感動している。</p>\n\n<p><a href=\"/users/koshikawa_naoto\" class=\"user-mention\" title=\"koshikawa_naoto\" target=\"_blank\">@koshikawa_naoto</a> </p>\n",
+    "message":"Ship It!",
+    "wip":false,
+    "number":8,
+    "name":"日報/2016/03/17/越川直人",
+    "url":"http://ware2.lvh.me:3000/posts/8",
+    "diff_url":"http://ware2.lvh.me:3000/posts/8/revisions/2/diff"
+  },
+  "comment":{
+    "body_md":"comment_mention body @koshikawa_naoto ",
+    "body_html":"<p>comment_mention body <a href=\"/users/koshikawa_naoto\" class=\"user-mention\" title=\"koshikawa_naoto\" target=\"_blank\">@koshikawa_naoto</a> </p>\n"
+  },
+  "mentioned_user":{
+    "name":"Naoto Koshikawa",
+    "screen_name":"koshikawa_naoto",
+    "icon":{
+      "url":"/images/fallback/default-user-icon.png",
+      "thumb_s":{
+        "url":"/images/fallback/default-user-icon.png"
+      },
+      "thumb_ms":{
+        "url":"/images/fallback/default-user-icon.png"
+      },
+      "thumb_m":{
+        "url":"/images/fallback/default-user-icon.png"
+      },
+      "thumb_l":{
+        "url":"/images/fallback/default-user-icon.png"
+      },
+      "thumb_esa":{
+        "url":"/images/fallback/default-user-icon.png"
+      }
+    }
+  }
+}'
