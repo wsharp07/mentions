@@ -1,12 +1,5 @@
-class Webhooks::From::Esa
+class Webhooks::From::Esa < Webhooks::From::Base
   PATTERNS = %w(comment post)
-  attr_reader :payload
-
-  def initialize(payload:)
-    @payload = JSON.parse(payload)
-  rescue
-    @payload = {}
-  end
 
   def comment
     search_content('body_md')
@@ -18,16 +11,10 @@ class Webhooks::From::Esa
 
   def mentions
     return [] unless @payload.dig('kind') =~ /_mention\z/
-    comment.match(/@([\S]+)/).to_a[1..-1] || []
+    super
   end
 
   def additional_message
     "you've been mentioned(\\( ⁰⊖⁰)/)"
-  end
-
-  private
-
-  def search_content(*keys)
-    PATTERNS.map { |pattern| @payload.dig(*[pattern, *keys]) }.compact.first
   end
 end
