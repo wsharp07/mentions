@@ -1,6 +1,11 @@
 require 'test_helper'
 
 class IdMappingTest < ActiveSupport::TestCase
+  def test_id_all_to_everyone
+    mapping = IdMapping.new(nil)
+    assert_equal 'everyone', mapping.find(user_name: 'all', from: 'esa', to: 'slack')
+  end
+
   def test_convert_with_local_file
     file_path = "#{Rails.root}/test/files/mention_mappings.yml"
     mapping = IdMapping.new(file_path)

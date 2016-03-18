@@ -22,7 +22,10 @@ class Webhook < ApplicationRecord
       id_mapping ||= IdMapping.new(ENV['MENTIONS_MAPPING_FILE_PATH'])
       id_mapping.find(user_name: m, from: from, to: to)
     }.compact
-    to_class.new(mentions: mentions, url: from_instance.url, additional_message: from_instance.additional_message).run
+
+    mentions.each do |mention|
+      to_class.new(mention: mention, url: from_instance.url, additional_message: from_instance.additional_message).post
+    end
   end
 
   private
