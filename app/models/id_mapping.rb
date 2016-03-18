@@ -9,6 +9,10 @@ class IdMapping
     else
       @mappings = YAML.load_file(mention_mappings_yaml)
     end
+  rescue
+    @mappings = []
+  ensure
+    @mappings << { 'esa' => 'all', 'slack' => 'all' }
   end
 
   def find(user_name:, from:, to:)
