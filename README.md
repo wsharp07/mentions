@@ -4,6 +4,8 @@
 
 If you've mentioned on github or esa, you'll get the mention on slack.
 
+![chapter3-1-3](https://cloud.githubusercontent.com/assets/536118/13883721/1547b4d8-ed6e-11e5-83b8-fedd1b1fd87f.png)
+
 ## Setup
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
