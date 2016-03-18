@@ -13,8 +13,8 @@ class Webhooks::To::SlackTest < ActiveSupport::TestCase
     assert_equal "@#{mention}", slack.instance_variable_get(:@channel)
   end
 
-  def test_run_all
-    mention = 'all'
+  def test_run_everyone
+    mention = 'everyone'
     url = 'http://example.com'
     additional_message = 'message'
     Net::HTTP.expects(:post_form)

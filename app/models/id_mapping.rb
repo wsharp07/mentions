@@ -12,7 +12,7 @@ class IdMapping
   rescue
     @mappings = []
   ensure
-    @mappings << { 'esa' => 'all', 'slack' => 'all' }
+    @mappings << { 'esa' => 'all', 'slack' => 'everyone' }
   end
 
   def find(user_name:, from:, to:)
