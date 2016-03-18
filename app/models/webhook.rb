@@ -8,6 +8,24 @@ class Webhook < ApplicationRecord
 
   before_validation :set_token, on: :create, unless: -> { token }
 
+  class << self
+    def new_by_token(token)
+      if webhook_attributes = tokens_in_env.find { |w| w[:token] == token }
+        Webhook.new(webhook_attributes)
+      end
+    end
+
+    private
+
+    def tokens_in_env
+      FROM.map { |f| TO.inject([]) { |_, t| {from: f, to: t, token: token_in_env(f, t)} } }
+    end
+
+    def token_in_env(from, to)
+      ENV.fetch("#{from.upcase}_TO_#{to.upcase}_TOKEN", nil)
+    end
+  end
+
   def from_class
     Webhooks::From.const_get(from.classify)
   end

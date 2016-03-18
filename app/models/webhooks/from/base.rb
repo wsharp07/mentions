@@ -18,6 +18,7 @@ class Webhooks::From::Base
   end
 
   def mentions
+    return [] unless comment
     comment.match(/@([\S]+)/).to_a[1..-1] || []
   end
 
