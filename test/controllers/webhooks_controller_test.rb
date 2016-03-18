@@ -1,10 +1,17 @@
 require 'test_helper'
 
-class WebhooksControllerTest < ActionDispatch::IntegrationTest
+class WebhooksControllerTest < ActionController::TestCase
   def test_hook_with_wrong_token
     assert_raises(ActiveRecord::RecordNotFound) do
-      post '/webhooks/undefined'
+      post :create, params: { token: 'undefined' }
     end
+  end
+
+  def test_hook_from_github_and_new_by_env
+    ENV['GITHUB_TO_SLACK_TOKEN'] = 'env_token'
+    post :create, params: { token: 'env_token' }
+    assert_response :success
+    ENV.delete('GITHUB_TO_SLACK_TOKEN')
   end
 
   def test_hook_from_github
@@ -17,7 +24,8 @@ class WebhooksControllerTest < ActionDispatch::IntegrationTest
       webhook = webhooks(:github_to_slack)
       payload = YAML.load_file("#{Rails.root}/test/payloads/github_payloads.yml")[event]['body']
 
-      post "/webhooks/#{webhook.token}", params: payload
+      #post "/webhooks/#{webhook.token}", params: payload
+      post :create, params: { token: webhook.token }, body: payload
       assert_response :success
     end
   end

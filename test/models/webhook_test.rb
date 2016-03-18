@@ -42,4 +42,21 @@ class WebhookTest < ActiveSupport::TestCase
     webhook = webhooks(:github_to_slack)
     webhook.run(payload: {'comment' => { 'html_url' => 'http://example.com/issue/1#issuecomment-1', 'body' => '@fukayatsu 見てください'}}.to_json)
   end
+
+  def test_new_by_env
+    Webhook::FROM.each do |from|
+      Webhook::TO.each do |to|
+        token = SecureRandom.uuid
+        env_key = "#{from.upcase}_TO_#{to.upcase}_TOKEN"
+        ENV[env_key] = token
+
+        webhook = Webhook.new_by_token(token)
+        assert_equal to, webhook.to
+        assert_equal from, webhook.from
+        assert_equal token, webhook.token
+
+        ENV.delete(env_key)
+      end
+    end
+  end
 end

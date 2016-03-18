@@ -21,6 +21,8 @@ Now, we support from github to slack & esa to slack.
 
 ### Set GitHub webhook
 
+Please set `GITHUB_TO_SLACK_TOKEN` or run the following command.
+
 ```
 heroku run console -a your-application-name
 Webhook.create(from: 'github', to: 'slack').token # Your webhook token
@@ -33,6 +35,8 @@ https://your-application-name.herokuapp.com/webhooks/your-webhook-token
 ![image](https://cloud.githubusercontent.com/assets/536118/13662694/dc6ad3e6-e6df-11e5-8fed-905f9fc35ab4.png)
 
 ### Set esa webhook
+
+Please set `ESA_TO_SLACK_TOKEN` or run the following command.
 
 ```
 heroku run console -a your-application-name
