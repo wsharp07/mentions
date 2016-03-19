@@ -1,0 +1,28 @@
+issue_create:
+  body: '{
+    "issue": {
+      "content": {
+        "raw": "issue_create body"
+      }
+    }
+}'
+issue_comment:
+  body: '{
+    "issue": {
+      "content": {
+        "raw": "issue_comment body"
+      }
+    }
+}'
+pullrequest_create:
+  body: '{
+    "pullrequest": {
+      "description": "pullrequest_create body"
+    }
+}'
+pullrequest_comment:
+  body: '{
+    "pullrequest": {
+      "description": "pullrequest_comment body"
+    }
+}'
