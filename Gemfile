@@ -14,7 +14,6 @@ gem 'haml-rails'
 gem 'hamlit'
 
 gem 'jquery-rails'
-gem 'turbolinks'
 gem 'jbuilder'
 
 group :development, :test do
