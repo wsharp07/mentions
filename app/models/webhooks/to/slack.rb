@@ -3,10 +3,10 @@ class Webhooks::To::Slack
     @mention = "@#{mention}"
     @channel = @mention == '@everyone' ? '#general' : @mention
     @text = "#{@mention} #{url} #{additional_message}"
-    @webhook_uri = URI.parse(ENV.fetch('SLACK_WEBHOOK_URL'))
+    @webhook_uri = ENV.fetch('SLACK_WEBHOOK_URL')
   end
 
   def post
-    Net::HTTP.post_form(@webhook_uri, { payload: {text: @text, link_names: 1, channel: @channel}.to_json })
+    HttpPostJob.perform_later(@webhook_uri, { payload: {text: @text, link_names: 1, channel: @channel}.to_json })
   end
 end
