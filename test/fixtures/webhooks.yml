@@ -12,3 +12,8 @@ github_to_idobata:
   from: github
   to: idobata
   token: token3
+
+trello_to_slack:
+  from: trello
+  to: slack
+  token: token4

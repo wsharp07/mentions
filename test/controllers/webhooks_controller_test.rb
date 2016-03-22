@@ -28,4 +28,18 @@ class WebhooksControllerTest < ActionController::TestCase
       assert_response :success
     end
   end
+
+  def test_hook_from_trello
+    %w(comment_card).each do |event|
+
+      webhook = webhooks(:trello_to_slack)
+      payload = YAML.load_file("#{Rails.root}/test/payloads/trello_payloads.yml")[event]['body']
+
+      head :show, params: { token: webhook.token }, body: payload
+      assert_response :success
+
+      post :create, params: { token: webhook.token }, body: payload
+      assert_response :success
+    end
+  end
 end
