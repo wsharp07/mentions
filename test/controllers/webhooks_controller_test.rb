@@ -24,7 +24,6 @@ class WebhooksControllerTest < ActionController::TestCase
       webhook = webhooks(:github_to_slack)
       payload = YAML.load_file("#{Rails.root}/test/payloads/github_payloads.yml")[event]['body']
 
-      #post "/webhooks/#{webhook.token}", params: payload
       post :create, params: { token: webhook.token }, body: payload
       assert_response :success
     end
