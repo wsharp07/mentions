@@ -1,10 +1,12 @@
-commentCard:
+comment_card:
   body: '{
     "action": {
       "type": "commentCard",
-      "card": {
-        "shortLink": "lEZ5xRyJ",
-        "text": "commentCard body"
+      "data": {
+        "card": {
+          "shortLink": "lEZ5xRyJ"
+        },
+        "text": "comment_card body"
       }
     }
   }
