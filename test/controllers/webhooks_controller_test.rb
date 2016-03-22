@@ -25,7 +25,7 @@ class WebhooksControllerTest < ActionController::TestCase
       payload = YAML.load_file("#{Rails.root}/test/payloads/github_payloads.yml")[event]['body']
 
       post :create, params: { token: webhook.token }, body: payload
-      assert_response :success
+      assert_response :no_content
     end
   end
 
@@ -36,10 +36,10 @@ class WebhooksControllerTest < ActionController::TestCase
       payload = YAML.load_file("#{Rails.root}/test/payloads/trello_payloads.yml")[event]['body']
 
       head :show, params: { token: webhook.token }, body: payload
-      assert_response :success
+      assert_response :ok
 
       post :create, params: { token: webhook.token }, body: payload
-      assert_response :success
+      assert_response :no_content
     end
   end
 end
