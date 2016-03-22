@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/ppworks/mentions.svg?branch=master)](https://travis-ci.org/ppworks/mentions)
 
-If you've mentioned on github or esa, bitbucket, you'll get the mention on slack.
+If you've mentioned on github or esa, bitbucket, trello, you'll get the mention on slack.
 
 ![chapter3-1-3](https://cloud.githubusercontent.com/assets/536118/13883721/1547b4d8-ed6e-11e5-83b8-fedd1b1fd87f.png)
 
@@ -66,6 +66,15 @@ https://your-application-name.herokuapp.com/webhooks/your-webhook-token
 ```
 
 ![image](https://cloud.githubusercontent.com/assets/536118/13899934/77f1f40c-ee3d-11e5-82c6-76d64359ee49.png)
+
+### Set trello webhook
+
+Please set `TRELLO_TO_SLACK_TOKEN` or run the following command.
+
+```
+heroku run console -a your-application-name
+Webhook.create(from: 'trello', to: 'slack').token # Your webhook token
+```
 
 ## Mentions mapping file example
 
