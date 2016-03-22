@@ -10,7 +10,7 @@ class Webhooks::From::Trello < Webhooks::From::Base
   end
 
   def mentions
-    return [] unless @payload.dig('action', 'type') =~ /\AcommentCard\z/
+    return [] unless @payload.dig('action', 'type') == 'commentCard'
     super
   end
 end
