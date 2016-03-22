@@ -22,6 +22,10 @@
     "BITBUCKET_TO_SLACK_TOKEN": {
       "required": false,
       "description": "Please set secret value and remember this value. If you don't need bitbucket2slack hook, please set blank."
+    },
+    "TRELLO_TO_SLACK_TOKEN": {
+      "required": false,
+      "description": "Please set secret value and remember this value. If you don't need trello2slack hook, please set blank."
     }
   },
   "scripts": {
