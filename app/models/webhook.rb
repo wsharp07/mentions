@@ -1,5 +1,5 @@
 class Webhook < ApplicationRecord
-  FROM = %w(github esa bitbucket)
+  FROM = %w(trello github esa bitbucket)
   TO = %w(slack)
 
   validates :from, inclusion: { in: FROM }
