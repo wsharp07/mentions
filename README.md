@@ -19,7 +19,7 @@ export SLACK_WEBHOOK_URL=https://hook.slack.com/services/yyyyyyyyyyyyyy # Please
 
 ### Create webhook
 
-Now, we support from github to slack & esa to slack.
+Now, we support from github, esa or bitbucket to slack.
 
 ### Set GitHub webhook
 
