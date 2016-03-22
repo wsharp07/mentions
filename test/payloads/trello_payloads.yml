@@ -1,0 +1,11 @@
+commentCard:
+  body: '{
+    "action": {
+      "type": "commentCard",
+      "card": {
+        "shortLink": "lEZ5xRyJ",
+        "text": "commentCard body"
+      }
+    }
+  }
+'
