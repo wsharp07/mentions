@@ -7,6 +7,10 @@ class WebhooksController < ApplicationController
     head :no_content
   end
 
+  def show
+    head :ok
+  end
+
   private
 
   def set_webhook
