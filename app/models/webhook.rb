@@ -1,6 +1,6 @@
 class Webhook < ApplicationRecord
   FROM = %w(trello github esa bitbucket)
-  TO = %w(slack)
+  TO = %w(slack idobata)
 
   validates :from, inclusion: { in: FROM }
   validates :to, inclusion: { in: TO }
@@ -18,7 +18,7 @@ class Webhook < ApplicationRecord
     private
 
     def tokens_in_env
-      FROM.map { |f| TO.inject([]) { |_, t| {from: f, to: t, token: token_in_env(f, t)} } }
+      FROM.map { |f| TO.map { |t| {from: f, to: t, token: token_in_env(f, t)} } }.flatten
     end
 
     def token_in_env(from, to)

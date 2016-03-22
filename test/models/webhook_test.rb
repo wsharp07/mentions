@@ -7,7 +7,7 @@ class WebhookTest < ActiveSupport::TestCase
   end
 
   def test_invalid_webhook
-    webhook = webhooks(:github_to_idobata)
+    webhook = webhooks(:github_to_chatwork)
     assert !webhook.valid?
   end
 

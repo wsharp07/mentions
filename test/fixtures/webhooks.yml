@@ -8,9 +8,9 @@ esa_to_slack:
   to: slack
   token: token2
 
-github_to_idobata:
+github_to_chatwork:
   from: github
-  to: idobata
+  to: chatwork
   token: token3
 
 trello_to_slack:
