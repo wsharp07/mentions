@@ -19,7 +19,7 @@ class Webhooks::From::Base
 
   def mentions
     return [] unless comment
-    comment.match(/@([\S]+)/).to_a[1..-1] || []
+    comment.scan(/@([\S]+)/).flatten || []
   end
 
   def additional_message
