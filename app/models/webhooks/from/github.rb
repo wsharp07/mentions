@@ -1,5 +1,6 @@
 class Webhooks::From::Github < Webhooks::From::Base
   PATTERNS = %w(comment pull_request issue)
+  ACCEPT_ACTIONS = %w(created opened assigned)
 
   def comment
     assigned? ? 'assigned' : search_content('body')
@@ -23,5 +24,9 @@ class Webhooks::From::Github < Webhooks::From::Base
 
   def additional_message
     assigned? ? "you've been assigned" : super
+  end
+
+  def accept?
+    ACCEPT_ACTIONS.include?(@payload['action'])
   end
 end
