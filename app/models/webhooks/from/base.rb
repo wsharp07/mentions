@@ -26,6 +26,10 @@ class Webhooks::From::Base
     "you've been mentioned"
   end
 
+  def accept?
+    true
+  end
+
   private
 
   def search_content(*keys)
