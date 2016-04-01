@@ -11,6 +11,7 @@ class Webhooks::From::GithubTest < ActiveSupport::TestCase
       payload = YAML.load_file("#{Rails.root}/test/payloads/github_payloads.yml")[event]['body']
       github = Webhooks::From::Github.new(payload: payload)
 
+      assert github.accept?
       assert_equal "#{event} body", github.comment
     end
   end
@@ -22,9 +23,27 @@ class Webhooks::From::GithubTest < ActiveSupport::TestCase
       payload = YAML.load_file("#{Rails.root}/test/payloads/github_payloads.yml")[event]['body']
       github = Webhooks::From::Github.new(payload: payload)
 
+      assert github.accept?
       assert github.assigned?
       assert_equal 'assigned', github.comment
       assert_equal ['ppworks'], github.mentions
     end
+  end
+
+  def test_accept?
+    %w(created
+       opened
+       assigned)
+    payload = { action: 'created' }.to_json
+    github = Webhooks::From::Github.new(payload: payload)
+
+    assert github.accept?
+  end
+
+  def test_does_not_accept?
+    payload = { action: 'synchronize' }.to_json
+    github = Webhooks::From::Github.new(payload: payload)
+
+    assert !github.accept?
   end
 end
