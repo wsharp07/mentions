@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/rails/rails.git
-  revision: 863d385012824ac9a792b0c337f06c562914149f
+  revision: bf84a99239620b2b40b2a06f7214753fe586b0a7
   specs:
     actioncable (5.0.0.beta3)
       actionpack (= 5.0.0.beta3)
@@ -134,7 +134,7 @@ GEM
       pry (~> 0.10)
     pry-rails (0.3.4)
       pry (>= 0.9.10)
-    puma (3.2.0)
+    puma (3.3.0)
     rack (2.0.0.alpha)
       json
     rack-test (0.6.3)
