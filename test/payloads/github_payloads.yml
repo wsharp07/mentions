@@ -1343,15 +1343,11 @@ pull_request_review_comment:
 assigned_issue:
   body: '{
   "action": "assigned",
-  "issue": {
-    "assignee": {"login": "ppworks"}
-  }
+  "assignee": {"login": "ppworks"}
 }'
 
 assigned_pull_request:
   body: '{
   "action": "assigned",
-  "pull_request": {
-    "assignee": {"login": "ppworks"}
-  }
+  "assignee": {"login": "ppworks"}
 }'
