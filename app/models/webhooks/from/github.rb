@@ -12,7 +12,7 @@ class Webhooks::From::Github < Webhooks::From::Base
 
   def mentions
     if assigned?
-      [search_content('assignee', 'login')].compact
+      [@payload.dig('assignee', 'login')].compact
     else
       super
     end
