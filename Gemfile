@@ -1,4 +1,4 @@
-ruby '2.3.0'
+ruby '2.3.1'
 source 'https://rubygems.org'
 
 git 'git://github.com/rails/rails.git' do
