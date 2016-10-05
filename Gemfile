@@ -1,9 +1,7 @@
 ruby '2.3.1'
 source 'https://rubygems.org'
 
-git 'git://github.com/rails/rails.git' do
-  gem 'rails'
-end
+gem 'rails', '>= 5.0.0'
 
 gem 'pg'
 gem 'puma'
