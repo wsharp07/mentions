@@ -7,7 +7,7 @@ class Webhooks::From::BaseTest < ActiveSupport::TestCase
     base.stubs(:comment).returns('hello')
     assert_equal [], base.mentions
 
-    base.stubs(:comment).returns('@ppworks')
+    base.stubs(:comment).returns('@ppworks @ppworks')
     assert_equal %w(ppworks), base.mentions
 
     base.stubs(:comment).returns('@ppworks @nalabjp')
