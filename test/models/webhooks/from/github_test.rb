@@ -33,7 +33,8 @@ class Webhooks::From::GithubTest < ActiveSupport::TestCase
   def test_accept?
     %w(created
        opened
-       assigned).each do |action|
+       assigned
+       review_requested).each do |action|
 
       payload = { action: action }.to_json
       github = Webhooks::From::Github.new(payload: payload)
