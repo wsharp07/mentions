@@ -30,6 +30,18 @@ class Webhooks::From::GithubTest < ActiveSupport::TestCase
     end
   end
 
+  def test_review_requested
+    %w(review_requested_pull_request).each do |event|
+      payload = YAML.load_file("#{Rails.root}/test/payloads/github_payloads.yml")[event]['body']
+      github = Webhooks::From::Github.new(payload: payload)
+
+      assert github.accept?
+      assert github.review_requested?
+      assert_equal 'review requested', github.comment
+      assert_equal ['ppworks'], github.mentions
+    end
+  end
+
   def test_accept?
     %w(created
        opened
