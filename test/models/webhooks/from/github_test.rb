@@ -33,11 +33,13 @@ class Webhooks::From::GithubTest < ActiveSupport::TestCase
   def test_accept?
     %w(created
        opened
-       assigned)
-    payload = { action: 'created' }.to_json
-    github = Webhooks::From::Github.new(payload: payload)
+       assigned).each do |action|
 
-    assert github.accept?
+      payload = { action: action }.to_json
+      github = Webhooks::From::Github.new(payload: payload)
+
+      assert github.accept?
+    end
   end
 
   def test_does_not_accept?
