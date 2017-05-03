@@ -38,17 +38,27 @@ class Webhooks::From::Github < Webhooks::From::Base
   end
 
   def additional_message
+    title ? "*#{title}* #{base_message}" : base_message
+  end
+
+  def accept?
+    ACCEPT_ACTIONS.include?(@payload['action'])
+  end
+
+  private
+
+  def title
+    search_content('title')
+  end
+
+  def base_message
     case
     when assigned?
       "you've been assigned"
     when review_requested?
       "you've been review requested"
     else
-      super
+      "you've been mentioned"
     end
-  end
-
-  def accept?
-    ACCEPT_ACTIONS.include?(@payload['action'])
   end
 end
