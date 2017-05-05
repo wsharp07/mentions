@@ -42,6 +42,33 @@ class Webhooks::From::GithubTest < ActiveSupport::TestCase
     end
   end
 
+  def test_additional_message_of_pull_request
+    %w(pull_request
+      pull_request_review_comment).each do |event|
+      payload = YAML.load_file("#{Rails.root}/test/payloads/github_payloads.yml")[event]['body']
+      github = Webhooks::From::Github.new(payload: payload)
+
+      assert github.additional_message.include?('*Update the README with new information*')
+    end
+  end
+
+  def test_additional_message_of_issue
+    %w(issue_comment
+       issues).each do |event|
+      payload = YAML.load_file("#{Rails.root}/test/payloads/github_payloads.yml")[event]['body']
+      github = Webhooks::From::Github.new(payload: payload)
+
+      assert_equal "*Spelling error in the README file* you've been mentioned", github.additional_message
+    end
+  end
+
+  def test_additional_message_of_commit
+    payload = YAML.load_file("#{Rails.root}/test/payloads/github_payloads.yml")['commit_comment']['body']
+    github = Webhooks::From::Github.new(payload: payload)
+
+    assert_equal "you've been mentioned", github.additional_message
+  end
+
   def test_accept?
     %w(created
        opened
