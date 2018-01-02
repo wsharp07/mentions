@@ -1,4 +1,4 @@
-ruby '2.4.1'
+ruby '2.4.3'
 source 'https://rubygems.org'
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -9,6 +9,7 @@ gem 'rails', '>= 5.0.0'
 
 gem 'pg'
 gem 'puma'
+gem 'tzinfo-data'
 
 group :development, :test do
   gem 'pry-byebug'

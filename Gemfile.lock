@@ -45,6 +45,7 @@ GEM
     concurrent-ruby (1.0.5)
     erubi (1.6.1)
     ffi (1.9.18)
+    ffi (1.9.18-x64-mingw32)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
     i18n (0.8.6)
@@ -68,7 +69,10 @@ GEM
     nio4r (2.1.0)
     nokogiri (1.8.0)
       mini_portile2 (~> 2.2.0)
+    nokogiri (1.8.0-x64-mingw32)
+      mini_portile2 (~> 2.2.0)
     pg (0.21.0)
+    pg (0.21.0-x64-mingw32)
     pry (0.10.4)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -127,12 +131,15 @@ GEM
     thread_safe (0.3.6)
     tzinfo (1.2.3)
       thread_safe (~> 0.1)
+    tzinfo-data (1.2017.3)
+      tzinfo (>= 1.0.0)
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
 
 PLATFORMS
   ruby
+  x64-mingw32
 
 DEPENDENCIES
   listen
@@ -144,10 +151,10 @@ DEPENDENCIES
   puma
   rails (>= 5.0.0)
   rails_12factor
-
+  tzinfo-data
 
 RUBY VERSION
-   ruby 2.4.1p111
+   ruby 2.4.3p205
 
 BUNDLED WITH
-   1.14.6
+   1.16.1
